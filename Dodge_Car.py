@@ -17,7 +17,7 @@ def game_loop():
     mixer.music.load('background_music.wav')
     mixer.music.play(-1)
 
-    car = pygame.image.load('car.png')
+    car = pygame.image.load('car (1).png')
     carX = 336
     carY = 480
     carX_change = 0
