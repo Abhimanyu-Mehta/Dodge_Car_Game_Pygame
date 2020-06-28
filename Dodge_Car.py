@@ -129,6 +129,7 @@ def game_loop():
         if game_over_:
             with open("Hiscore_Manager.txt", "w") as f:
                 f.write(str(hiscore))
+            screen.blit(background, (0, 0))
             print_game_over()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
