@@ -17,7 +17,7 @@ def game_loop():
     mixer.music.load('background_music.wav')
     mixer.music.play(-1)
 
-    car = pygame.image.load('car (1).png')
+    car = pygame.image.load('car.png')
     carX = 336
     carY = 480
     carX_change = 0
@@ -225,4 +225,48 @@ def game_loop():
         pygame.display.update()
 
 
-game_loop()
+pygame.init()
+
+screen = pygame.display.set_mode((800, 600))
+
+background = pygame.image.load('road_background.png')
+
+icon = pygame.image.load('car_logo.png')
+pygame.display.set_icon(icon)
+
+mixer.music.load('background_music.wav')
+mixer.music.play(-1)
+
+game_start = pygame.font.Font('freesansbold.ttf', 64)
+fontX = 100
+fontY = 270
+
+
+def print_game_start():
+    game_start_ = game_start.render("Press Enter to start", True, (0, 0, 0))
+    screen.blit(game_start_, (fontX, fontY))
+
+
+game_name = pygame.font.Font('font.ttf', 45)
+game_name_fontX = 300
+game_name_fontY = 100
+
+
+def print_game_name():
+    game_name_ = game_name.render("Dodge Car", True, (0, 0, 0))
+    screen.blit(game_name_, (game_name_fontX, game_name_fontY))
+
+
+running = True
+
+while running:
+    screen.blit(background, (0, 0))
+    print_game_name()
+    print_game_start()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                game_loop()
+    pygame.display.update()
